@@ -9,6 +9,7 @@
 <%@ page import="hello.servlet.domain.member.MemberRepository" %>
 <%@ page import="hello.servlet.domain.member.Member" %>
 <%
+    //request, response 사용 가능(JSP 에서도)
     MemberRepository memberRepository = MemberRepository.getInstance();
 
     System.out.println("MemberSaveServlet.service");
@@ -23,6 +24,12 @@
     <title>Title</title>
 </head>
 <body>
-
+성공
+<ul>
+    <li>id=<%=member.getId()%></li>
+    <li>username=<%=member.getUsername()%></li>
+    <li>age=<%=member.getAge()%></li>
+</ul>
+<a href="/index.html">메인</a>
 </body>
 </html>
