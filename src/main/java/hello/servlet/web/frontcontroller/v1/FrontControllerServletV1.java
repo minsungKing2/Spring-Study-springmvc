@@ -32,11 +32,12 @@ public class FrontControllerServletV1 extends HttpServlet {
         // /front-controller/v1/members
         String requestURI = request.getRequestURI(); //URL 정보를 받아옴.
 
+        // /front-controller/v1/members -> MemberListControllerV1()
         ControllerV1 controller = controllerMap.get(requestURI);
 
         //예외처리
         if (controller == null) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND); //NOT FOUND 404
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND); //NOT FOUND 404로 정의 된 상수
             return;
         }
 
