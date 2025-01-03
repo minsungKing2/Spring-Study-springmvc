@@ -17,7 +17,7 @@ import java.util.Map;
 @WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
 public class FrontControllerServletV1 extends HttpServlet {
 
-    private Map<String, ControllerV1> controllerMap = new HashMap<>(); //key:URL
+    private Map<String, ControllerV1> controllerMap = new HashMap<>(); //key:URL -> key에 해당하는 values의 값을 반환
 
     public FrontControllerServletV1() {
         controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
@@ -30,13 +30,13 @@ public class FrontControllerServletV1 extends HttpServlet {
         System.out.println("FrontControllerServletV1.service"); //sout보단 로고로 찍는게 좋음.
 
         // /front-controller/v1/members
-        String requestURI = request.getRequestURI();
+        String requestURI = request.getRequestURI(); //URL 정보를 받아옴.
 
         ControllerV1 controller = controllerMap.get(requestURI);
 
         //예외처리
         if (controller == null) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND); //NOT FOUND 404
             return;
         }
 
