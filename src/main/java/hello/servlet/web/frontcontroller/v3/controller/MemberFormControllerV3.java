@@ -8,6 +8,6 @@ import java.util.Map;
 public class MemberFormControllerV3 implements ControllerV3 {
     @Override
     public ModelView process(Map<String, String> paramMap) {
-        return new ModelView("new-form");
+        return new ModelView("new-form"); //논리적인 이름 new-form
     }
 }
